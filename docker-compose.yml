@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  airflow:
+    build:
+      context: .
+      dockerfile: dags/Dockerfile
+    volumes:
+      - ./dags:/opt/airflow/dags
+    working_dir: /opt/airflow
+    ports:
+      - "8080:8080"
+    command: ["airflow", "standalone"]
+
